@@ -223,6 +223,7 @@ public class Controller {
 			print = new PrintWriter(file);
 			
 			for (Ibex35 ibex35 : ibex) {
+				print.println();
 				print.println(ibex35.toString());
 				print.println();
 			}
