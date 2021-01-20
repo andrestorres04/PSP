@@ -20,7 +20,7 @@ public class Main {
 
 		time = 10000;
 		while (true) {
-			Controller miController = new Controller("https://www.bolsamadrid.es/esp/aspx/Mercados/Precios.aspx?indice=ESI100000000");
+			Controller miController = new Controller("https://www.bolsamadrid.es/esp/aspx/Mercados/Precios.aspx?indice=ESI100000000&punto=indice");
 			ArrayList<String> lineas = miController.getDatos();
 			ArrayList<Ibex35> ibex = miController.getIbex(lineas);
 			ArrayList<Empresas> misEmpresas = miController.getEmpresas(lineas);
