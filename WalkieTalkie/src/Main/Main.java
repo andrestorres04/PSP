@@ -16,8 +16,6 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		Scanner serverScanner = new Scanner(System.in);
-		Scanner clientScanner = new Scanner(System.in);
 		Cliente Client = null;
 		Servidor Server = null;
 		int frecuencia = 6000;
@@ -29,6 +27,8 @@ public class Main {
 		
 		
 		while(true) {
+			Scanner serverScanner = new Scanner(System.in);
+			Scanner clientScanner = new Scanner(System.in);
 			//Se imprime el menú princiapl
 			System.out.println("--------------------------------");
 			System.out.println("----------WalkieTalkie----------");
@@ -95,6 +95,7 @@ public class Main {
 						
 					}
 					Server.cerrarConexionServidor();
+					serverScanner.close();
 					break;
 				case "2":
 					//Se crea el Cliente
@@ -148,10 +149,13 @@ public class Main {
 						
 					}
 					Client.cerrarConexionCliente();
+					clientScanner.close();
 					break;
 				case "3":
 					//Caso 3 se termina el programa.
 					System.out.println("El programa ha sido finalizado.");	
+					serverScanner.close();
+					clientScanner.close();
 					System.exit(0);
 			}
 		}
