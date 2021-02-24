@@ -21,3 +21,17 @@ INSERT INTO supermercado.Empleado (ultima_sesion, fecha_contratacion) VALUES
 ('2021-02-19', '2014-05-14'),
 ('2021-02-19', '2020-12-24'),
 ('2021-02-04', '2019-09-15');
+
+-- COMPRA
+INSERT INTO supermercado.compra (id_empleado, fecha_compra) VALUES 
+(1,'2021-02-24'),
+(2,'2021-02-20'),
+(3,'2021-02-20'),
+(4,'2021-02-20');
+
+-- CANTIDAD-PRODUCTO
+INSERT INTO supermercado.cantidadproducto (id_producto, cantidad) VALUES 
+(2,2),
+(5,3),
+(7,4),
+(1,5);
