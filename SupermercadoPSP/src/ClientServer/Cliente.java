@@ -118,24 +118,19 @@ public class Cliente {
 	 */
 	public static void cobrarCompra() throws ClassNotFoundException {
 		System.out.println("Elija el producto que desea cobrar: ");
-		int j = 0;
-		try {
-			salida = new DataOutputStream(Client.getOutputStream());
-			salida.writeUTF("ListaProductos");
-			entrada = new ObjectInputStream(Client.getInputStream());
-			//Da error al leerlo con entrada.readObject(). Si instancio un objeto entradaTexto.readInt() no da error
-			//pero el valor de j no es el esperado.
-			j = Integer.parseInt(entrada.readObject().toString());
-			//La j recibida es negativa, no entiendo por qué.
-			for(int i = 0; i < j; i++) {
-				//No imprime los productos.
-				System.out.println(entrada.readUTF());
-			}
-			System.out.println("fuera del bucle");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		System.out.println("1. Disco duro");
+		System.out.println("2. USB");
+		System.out.println("3. Monitor");
+		System.out.println("4. Ratón");
+		System.out.println("5. Cargador");
+		System.out.println("6. Agua");
+		System.out.println("7. CocaCola");
+		System.out.println("8. Pizza");
+		System.out.println("9. Café");
+		System.out.println("10. Ambientador");
+		System.out.println("11. Hamburguesa");
+		System.out.println("12. Boligrafo azul");
+		System.out.println("13. Patatas fritas");
 		
 		int idProducto = Integer.parseInt(miScanner.next());
 		System.out.println("¿Cuántas unidades quiere?");
