@@ -117,7 +117,7 @@ public class Cliente {
 	 * @throws ClassNotFoundException
 	 */
 	public static void cobrarCompra() throws ClassNotFoundException {
-		System.out.println("Elija el producto que desea cobrar: ");
+		System.out.println("Elija el producto que desea cobrar: \n");
 		System.out.println("1. Disco duro");
 		System.out.println("2. USB");
 		System.out.println("3. Monitor");
@@ -133,7 +133,7 @@ public class Cliente {
 		System.out.println("13. Patatas fritas");
 		
 		int idProducto = Integer.parseInt(miScanner.next());
-		System.out.println("¿Cuántas unidades quiere?");
+		System.out.println("\n¿Cuántas unidades quiere?");
 		int cantidad = Integer.parseInt(miScanner.next());
 		try {
 			salida = new DataOutputStream(Client.getOutputStream());
