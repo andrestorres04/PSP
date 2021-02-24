@@ -78,25 +78,6 @@ public class ProductDAO extends AbstractDAO{
 		
 	}
 	
-	/**
-	 * Método que te devulve el número de productos que hay en 
-	 * la base de datos.
-	 * @return
-	 */
-	public int getCountAllProducts() {
-		int i = 0;
-		try {
-			stm = con.createStatement();
-			rs = stm.executeQuery("SELECT COUNT(*) FROM supermercado.producto;");
-			while(rs.next()) {
-				i = rs.getInt(1);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return i;
-	}
 	
 	/**
 	 * Método que actualiza el stock de los productos en la base de datos
