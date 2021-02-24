@@ -169,7 +169,6 @@ public class HiloServidor extends Thread{
 		try {
 			salidaTexto = new DataOutputStream(Client.getOutputStream());
 			salidaTexto.writeFloat(total);
-			System.out.println(total);
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
