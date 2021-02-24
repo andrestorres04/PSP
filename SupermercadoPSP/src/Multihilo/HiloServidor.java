@@ -87,8 +87,6 @@ public class HiloServidor extends Thread{
 						idEmpleadoLogeado = Integer.parseInt(trozo[1]);
 						salida.writeObject(employeeDAO.getEmployeeById(idEmpleadoLogeado));
 					}
-				} else if (trozo[0].equals("ListaProductos")) {
-					getProducts();
 				} else if (trozo[0].equals("Cobro")) {
 					updateStockProducts(Integer.parseInt(trozo[1]), Integer.parseInt(trozo[2]));
 				} else if (trozo[0].equals("Caja")) {
@@ -124,28 +122,6 @@ public class HiloServidor extends Thread{
 		}
 	}
 	
-	/**
-	 * Método que envía los productos al Cliente.
-	 */
-	private void getProducts() {
-		try {
-			salida = new ObjectOutputStream(Client.getOutputStream());
-			salidaTexto = new DataOutputStream(Client.getOutputStream());
-			int maxProd = productDAO.getCountAllProducts();
-			salida.writeObject(maxProd);
-			System.out.println(maxProd);
-			//salida.writeObject(productDAO.getCountAllProducts());
-			ArrayList<Product> listaProd = productDAO.getAllProducts();
-			for (int i = 0; i < listaProd.size(); i++) {
-				salida.writeUTF(listaProd.get(i).toString());
-				//salida.writeObject(producto.toString());
-				System.out.println(listaProd.get(i).toString());
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
 	/**
 	 * Método que ordena actualizar el stock de los productos en la base de datos
@@ -191,13 +167,9 @@ public class HiloServidor extends Thread{
 			total = total + ganancias;
 		}
 		try {
-			//salida = new ObjectOutputStream(Client.getOutputStream());
-			//salida.writeObject(ganancias);
 			salidaTexto = new DataOutputStream(Client.getOutputStream());
-			System.out.println("Caja realizada por el empleado con id: " + id +"\nTotal ganancias: " + total + "€");
 			salidaTexto.writeFloat(total);
 			System.out.println(total);
-			//salidaTexto.writeUTF("Caja realizada por el empleado con id: " + id +"\nTotal ganancias: " + ganancias + "€");
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
